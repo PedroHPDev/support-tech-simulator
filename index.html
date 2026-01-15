@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Simulador de Suporte Técnico</title>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Simulador de Suporte Técnico</h1>
+    <p>Diagnóstico inicial de problemas comuns</p>
+  </header>
+
+  <main class="container">
+
+    <!-- INTRO -->
+    <section class="intro">
+      <h2>Como podemos ajudar?</h2>
+      <p>Selecione abaixo o problema que você está enfrentando.</p>
+
+      <button id="start-btn">
+        Computador lento
+      </button>
+    </section>
+
+    <!-- ÁREA DE PERGUNTAS -->
+    <section class="question-area hidden" id="question-area">
+      <h3 id="question-title"></h3>
+
+      <div class="options">
+        <button class="option-btn">Sim</button>
+        <button class="option-btn">Não</button>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section class="result hidden" id="result">
+      <h3>Possível diagnóstico</h3>
+      <p id="result-text"></p>
+
+      <button id="restart-btn">
+        Reiniciar simulação
+      </button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 - Pedro Henrique</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
