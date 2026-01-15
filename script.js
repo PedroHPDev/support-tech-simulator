@@ -26,35 +26,15 @@ let history = [];
 // =========================
 const scenarios = {
   slow: [
-  {
-    text: "O computador demora muito para iniciar?",
-    yes: {
-      message: "Possível excesso de programas iniciando com o sistema.",
-      level: "medio"
-    },
-    no: {
-      message: "Pode haver pouco espaço em disco ou problema no HD.",
-      level: "medio"
-    }
-  },
-  {
-    text: "Existem muitos programas abertos ao mesmo tempo?",
-    yes: {
-      message: "Fechar aplicações desnecessárias pode melhorar o desempenho.",
-      level: "baixo"
-    },
-    no: {
-      message: "Recomenda-se verificar vírus ou atualizar o sistema.",
-      level: "critico"
-    }
-  }
-]
-
-  internet: [
     {
-      text: "O Wi-Fi está conectado?",
-      yes: "O problema pode estar no roteador ou no provedor.",
-      no: "Ative o Wi-Fi ou verifique o adaptador de rede."
+      text: "O computador demora muito para iniciar?",
+      yes: "Possível excesso de programas iniciando com o sistema.",
+      no: "Pode haver pouco espaço em disco ou problema no HD."
+    },
+    {
+      text: "Existem muitos programas abertos ao mesmo tempo?",
+      yes: "Fechar aplicações desnecessárias pode melhorar o desempenho.",
+      no: "Recomenda-se verificar vírus ou atualizar o sistema."
     }
   ],
 
@@ -69,8 +49,30 @@ const scenarios = {
       yes: "Verifique memória ou HD.",
       no: "Recomenda-se verificar cabos ou fonte."
     }
+  ],
+
+  internet: [
+    {
+      text: "O Wi-Fi está conectado?",
+      yes: "O problema pode estar no roteador ou no provedor.",
+      no: "Ative o Wi-Fi ou verifique o adaptador de rede."
+    }
   ]
 };
+
+  boot: [
+    {
+      text: "O computador dá algum sinal ao ligar?",
+      yes: "Pode ser problema no sistema operacional.",
+      no: "Possível falha na fonte ou energia."
+    },
+    {
+      text: "Alguma luz acende no gabinete?",
+      yes: "Verifique memória ou HD.",
+      no: "Recomenda-se verificar cabos ou fonte."
+    }
+  ]
+
 
 
 // =========================
