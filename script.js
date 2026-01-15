@@ -2,27 +2,23 @@
 // ELEMENTOS DO DOM
 // =========================
 const startButtons = document.querySelectorAll(".start-btn");
+const introSection = document.querySelector(".intro");
 const questionArea = document.getElementById("question-area");
 const questionTitle = document.getElementById("question-title");
 const optionButtons = document.querySelectorAll(".option-btn");
 const resultSection = document.getElementById("result");
 const resultText = document.getElementById("result-text");
 const restartBtn = document.getElementById("restart-btn");
-const introSection = document.querySelector(".intro");
-
 
 // =========================
-// ESTADO DA APLICAÇÃO
+// ESTADO
 // =========================
 let step = 0;
-let finalMessage = "";
 let currentScenario = [];
-let severity = "";
-let history = [];
-
+let finalMessage = "";
 
 // =========================
-// CENÁRIOS DE SUPORTE
+// CENÁRIOS
 // =========================
 const scenarios = {
   slow: [
@@ -60,21 +56,6 @@ const scenarios = {
   ]
 };
 
-  boot: [
-    {
-      text: "O computador dá algum sinal ao ligar?",
-      yes: "Pode ser problema no sistema operacional.",
-      no: "Possível falha na fonte ou energia."
-    },
-    {
-      text: "Alguma luz acende no gabinete?",
-      yes: "Verifique memória ou HD.",
-      no: "Recomenda-se verificar cabos ou fonte."
-    }
-  ]
-
-
-
 // =========================
 // INICIAR SIMULAÇÃO
 // =========================
@@ -88,60 +69,27 @@ startButtons.forEach(button => {
 
     introSection.classList.add("hidden");
     questionArea.classList.remove("hidden");
+    resultSection.classList.add("hidden");
 
     loadQuestion();
   });
 });
 
-
 // =========================
 // CARREGAR PERGUNTA
 // =========================
-function showResult() {
-  questionArea.classList.add("hidden");
-  resultSection.classList.remove("hidden");
-
-  resultText.innerText = finalMessage;
-
-  const severityText = document.getElementById("severity");
-  const historyList = document.getElementById("history-list");
-
-  // severidade
-  if (severity === "baixo") {
-    severityText.innerText = "🟢 Severidade: Baixa";
-  } else if (severity === "medio") {
-    severityText.innerText = "🟡 Severidade: Média";
-  } else {
-    severityText.innerText = "🔴 Severidade: Crítica";
-  }
-
-  // histórico
-  historyList.innerHTML = "";
-  history.forEach(item => {
-    const li = document.createElement("li");
-    li.innerText = `${item.question} → ${item.answer.toUpperCase()}`;
-    historyList.appendChild(li);
-  });
+function loadQuestion() {
+  questionTitle.innerText = currentScenario[step].text;
 }
 
-
 // =========================
-// RESPOSTAS (SIM / NÃO)
+// RESPOSTAS
 // =========================
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
     const answer = button.innerText.toLowerCase();
 
-    // salva histórico
-    history.push({
-      question: currentScenario[step].text,
-      answer: answer
-    });
-
-    const response = currentScenario[step][answer];
-    finalMessage = response.message;
-    severity = response.level;
-
+    finalMessage = currentScenario[step][answer];
     step++;
 
     if (step < currentScenario.length) {
@@ -152,10 +100,8 @@ optionButtons.forEach(button => {
   });
 });
 
-
-
 // =========================
-// MOSTRAR RESULTADO
+// RESULTADO
 // =========================
 function showResult() {
   questionArea.classList.add("hidden");
@@ -163,16 +109,13 @@ function showResult() {
   resultText.innerText = finalMessage;
 }
 
-
 // =========================
-// REINICIAR SIMULAÇÃO
+// REINICIAR
 // =========================
 restartBtn.addEventListener("click", () => {
   step = 0;
-  finalMessage = "";
   currentScenario = [];
-severity = "";
-history = [];
+  finalMessage = "";
 
   resultSection.classList.add("hidden");
   introSection.classList.remove("hidden");

@@ -142,3 +142,9 @@ button:hover {
   width: 100%;
   margin-bottom: 12px;
 }
+.start-btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  font-weight: bold;
+}
