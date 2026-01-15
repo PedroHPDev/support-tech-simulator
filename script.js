@@ -87,9 +87,8 @@ function loadQuestion() {
 // =========================
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
-    const answer = button.innerText.toLowerCase();
-
-    finalMessage = currentScenario[step][answer];
+  const answer = button.dataset.answer;
+finalMessage = currentScenario[step][answer];
     step++;
 
     if (step < currentScenario.length) {
