@@ -1,59 +1,91 @@
-# 🛠️ Support Tech Simulator
+🛠️ Simulador de Suporte Técnico
 
-Simulador de suporte técnico desenvolvido com HTML, CSS e JavaScript, com o objetivo de reproduzir um fluxo simples de diagnóstico de problemas comuns em computadores.
+Projeto front-end desenvolvido com HTML, CSS e JavaScript, que simula um atendimento inicial de suporte técnico por meio de perguntas e respostas interativas.
 
-O projeto foi criado como parte do meu portfólio front-end, focando em estrutura semântica, lógica clara em JavaScript e uma interface limpa com aparência de sistema real.
+O objetivo do projeto é praticar lógica em JavaScript, manipulação do DOM e organização de código, além de criar algo próximo de uma situação real do dia a dia de suporte técnico.
 
----
+📌 Funcionalidades
 
-## 🚀 Demonstração
+Seleção do tipo de problema:
 
-🔗 Em breve no GitHub Pages
+🐢 Computador lento
 
----
+🌐 Sem internet
 
-## 🎯 Funcionalidades
+⚠️ Computador não liga
 
-- Início de simulação de atendimento técnico
-- Fluxo de perguntas e respostas
-- Diagnóstico baseado nas respostas do usuário
-- Controle de estado da aplicação com JavaScript
-- Interface responsiva e organizada
+Fluxo de perguntas dinâmico baseado no problema escolhido
 
----
+Respostas do tipo Sim / Não
 
-## 🧪 Tecnologias utilizadas
+Diagnóstico final exibido ao usuário
 
-- HTML5 semântico
-- CSS3 moderno (Flexbox e variáveis CSS)
-- JavaScript puro (DOM, eventos e lógica de estado)
+Interface simples, moderna e responsiva
 
----
+Código organizado por responsabilidades (estado, cenários, lógica)
 
-## 📚 Aprendizados
+🧠 Lógica do Projeto
 
-Neste projeto, pratiquei:
+O simulador funciona a partir de cenários, definidos em um objeto JavaScript:
 
-- Estruturação correta de layouts front-end
-- Organização e reutilização de código JavaScript
-- Separação de responsabilidades (HTML, CSS e JS)
-- Simulação de lógica aplicada a problemas reais
-- Versionamento de código com Git e GitHub
+Cada cenário contém:
 
----
+Perguntas
 
-## 🔧 Próximas melhorias
+Respostas para Sim e Não
 
-- Adicionar novos tipos de problemas (rede, impressora, sistema)
-- Implementar múltiplos fluxos de diagnóstico
-- Criar histórico de interações
-- Melhorar feedback visual para o usuário
+O sistema avança conforme as respostas do usuário
 
----
+Ao final, exibe um possível diagnóstico
 
-## 👨‍💻 Autor
+Esse modelo permite:
 
-Pedro Henrique  
-Desenvolvedor front-end em formação  
+Fácil adição de novos cenários
+
+Reutilização da lógica
+
+Evolução futura (histórico, severidade, chat, etc.)
+
+🧩 Tecnologias Utilizadas
+
+HTML5 — Estrutura da aplicação
+
+CSS3 — Estilização moderna e responsiva
+
+JavaScript (Vanilla) — Lógica, interatividade e manipulação do DOM
+
+Sem uso de frameworks ou bibliotecas externas, focando no fundamento.
+
+📷 Preview
+
+🔗 Acesse o projeto online:
+👉 (adicione aqui o link do GitHub Pages quando publicar)
+
+🚀 Próximas Melhorias (Roadmap)
+
+Histórico das respostas do usuário
+
+Classificação de severidade do problema (baixo / médio / crítico)
+
+Simulação de chat de suporte técnico
+
+Mais cenários e perguntas
+
+Melhorias visuais e animações
+
+👨‍💻 Sobre o Autor
+
+Pedro Henrique
+Desenvolvedor front-end em formação, em transição de carreira para a área de tecnologia.
+
+Estudando e praticando HTML, CSS e JavaScript
+
+Foco em projetos práticos e aprendizado contínuo
+
+Experiência prévia com suporte técnico e manutenção de equipamentos
 
 🔗 GitHub: https://github.com/PedroHPDev
+
+📄 Licença
+
+Este projeto é de uso educacional e faz parte do meu processo de aprendizado.
