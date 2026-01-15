@@ -40,14 +40,12 @@ function loadQuestion() {
 // CLIQUE NAS OPÇÕES
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
-    const answer = button.innerText.toLowerCase();
+    const answer =
+      button.innerText === "Sim" ? "yes" : "no";
 
-    // guarda mensagem da resposta
     finalMessage = questions[step][answer];
-
     step++;
 
-    // se ainda houver perguntas, avança
     if (step < questions.length) {
       loadQuestion();
     } else {
@@ -70,4 +68,5 @@ restartBtn.addEventListener("click", () => {
   resultSection.classList.add("hidden");
   startBtn.parentElement.classList.remove("hidden");
 });
+
 
