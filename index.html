@@ -29,8 +29,16 @@
       <h2>Como podemos ajudar?</h2>
       <p>Selecione abaixo o problema que você está enfrentando.</p>
 
-      <button id="start-btn">
-        Computador lento
+      <button class="start-btn" data-problem="slow">
+        🐢 Computador lento
+      </button>
+
+      <button class="start-btn" data-problem="internet">
+        🌐 Sem internet
+      </button>
+
+      <button class="start-btn" data-problem="boot">
+        ⚠️ Computador não liga
       </button>
     </section>
 
@@ -47,7 +55,11 @@
     <!-- RESULTADO -->
     <section class="result hidden" id="result">
       <h3>Possível diagnóstico</h3>
+
       <p id="result-text"></p>
+      <p id="severity"></p>
+      <h4>Histórico de respostas</h4>
+      <ul id="history-list"></ul>
 
       <button id="restart-btn">
         Reiniciar simulação
@@ -60,6 +72,8 @@
     <p>© 2026 - Pedro Henrique</p>
   </footer>
 
+  <!-- JS -->
   <script src="script.js" defer></script>
+
 </body>
 </html>

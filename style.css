@@ -137,3 +137,8 @@ button:hover {
     flex-direction: column;
   }
 }
+.start-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+}

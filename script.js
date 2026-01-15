@@ -1,13 +1,14 @@
 // =========================
 // ELEMENTOS DO DOM
 // =========================
-const startBtn = document.getElementById("start-btn");
+const startButtons = document.querySelectorAll(".start-btn");
 const questionArea = document.getElementById("question-area");
 const questionTitle = document.getElementById("question-title");
 const optionButtons = document.querySelectorAll(".option-btn");
 const resultSection = document.getElementById("result");
 const resultText = document.getElementById("result-text");
 const restartBtn = document.getElementById("restart-btn");
+const introSection = document.querySelector(".intro");
 
 
 // =========================
@@ -16,6 +17,8 @@ const restartBtn = document.getElementById("restart-btn");
 let step = 0;
 let finalMessage = "";
 let currentScenario = [];
+let severity = "";
+let history = [];
 
 
 // =========================
@@ -23,23 +26,48 @@ let currentScenario = [];
 // =========================
 const scenarios = {
   slow: [
-    {
-      text: "O computador demora muito para iniciar?",
-      yes: "Possível excesso de programas iniciando com o sistema.",
-      no: "Pode haver pouco espaço em disco ou problema no HD."
+  {
+    text: "O computador demora muito para iniciar?",
+    yes: {
+      message: "Possível excesso de programas iniciando com o sistema.",
+      level: "medio"
     },
-    {
-      text: "Existem muitos programas abertos ao mesmo tempo?",
-      yes: "Fechar aplicações desnecessárias pode melhorar o desempenho.",
-      no: "Recomenda-se verificar vírus ou atualizar o sistema."
+    no: {
+      message: "Pode haver pouco espaço em disco ou problema no HD.",
+      level: "medio"
     }
-  ],
+  },
+  {
+    text: "Existem muitos programas abertos ao mesmo tempo?",
+    yes: {
+      message: "Fechar aplicações desnecessárias pode melhorar o desempenho.",
+      level: "baixo"
+    },
+    no: {
+      message: "Recomenda-se verificar vírus ou atualizar o sistema.",
+      level: "critico"
+    }
+  }
+]
 
   internet: [
     {
       text: "O Wi-Fi está conectado?",
       yes: "O problema pode estar no roteador ou no provedor.",
       no: "Ative o Wi-Fi ou verifique o adaptador de rede."
+    }
+  ],
+
+  boot: [
+    {
+      text: "O computador dá algum sinal ao ligar?",
+      yes: "Pode ser problema no sistema operacional.",
+      no: "Possível falha na fonte ou energia."
+    },
+    {
+      text: "Alguma luz acende no gabinete?",
+      yes: "Verifique memória ou HD.",
+      no: "Recomenda-se verificar cabos ou fonte."
     }
   ]
 };
@@ -48,25 +76,50 @@ const scenarios = {
 // =========================
 // INICIAR SIMULAÇÃO
 // =========================
-startBtn.addEventListener("click", () => {
-  const problem = startBtn.dataset.problem || "slow";
+startButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const problem = button.dataset.problem;
 
-  currentScenario = scenarios[problem];
-  step = 0;
-  finalMessage = "";
+    currentScenario = scenarios[problem];
+    step = 0;
+    finalMessage = "";
 
-  startBtn.parentElement.classList.add("hidden");
-  questionArea.classList.remove("hidden");
+    introSection.classList.add("hidden");
+    questionArea.classList.remove("hidden");
 
-  loadQuestion();
+    loadQuestion();
+  });
 });
 
 
 // =========================
 // CARREGAR PERGUNTA
 // =========================
-function loadQuestion() {
-  questionTitle.innerText = currentScenario[step].text;
+function showResult() {
+  questionArea.classList.add("hidden");
+  resultSection.classList.remove("hidden");
+
+  resultText.innerText = finalMessage;
+
+  const severityText = document.getElementById("severity");
+  const historyList = document.getElementById("history-list");
+
+  // severidade
+  if (severity === "baixo") {
+    severityText.innerText = "🟢 Severidade: Baixa";
+  } else if (severity === "medio") {
+    severityText.innerText = "🟡 Severidade: Média";
+  } else {
+    severityText.innerText = "🔴 Severidade: Crítica";
+  }
+
+  // histórico
+  historyList.innerHTML = "";
+  history.forEach(item => {
+    const li = document.createElement("li");
+    li.innerText = `${item.question} → ${item.answer.toUpperCase()}`;
+    historyList.appendChild(li);
+  });
 }
 
 
@@ -77,7 +130,16 @@ optionButtons.forEach(button => {
   button.addEventListener("click", () => {
     const answer = button.innerText.toLowerCase();
 
-    finalMessage = currentScenario[step][answer];
+    // salva histórico
+    history.push({
+      question: currentScenario[step].text,
+      answer: answer
+    });
+
+    const response = currentScenario[step][answer];
+    finalMessage = response.message;
+    severity = response.level;
+
     step++;
 
     if (step < currentScenario.length) {
@@ -87,6 +149,7 @@ optionButtons.forEach(button => {
     }
   });
 });
+
 
 
 // =========================
@@ -106,9 +169,10 @@ restartBtn.addEventListener("click", () => {
   step = 0;
   finalMessage = "";
   currentScenario = [];
+severity = "";
+history = [];
 
   resultSection.classList.add("hidden");
-  startBtn.parentElement.classList.remove("hidden");
+  introSection.classList.remove("hidden");
 });
-
 
