@@ -59,7 +59,7 @@ Sem uso de frameworks ou bibliotecas externas, focando no fundamento.
 📷 Preview
 
 🔗 Acesse o projeto online:
-👉 https://github.com/PedroHPDev/support-tech-simulator
+👉 https://pedrohpdev.github.io/support-tech-simulator/
 
 🚀 Próximas Melhorias (Roadmap)
 
