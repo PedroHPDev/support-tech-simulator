@@ -1,18 +1,18 @@
-🛠️ Simulador de Suporte Técnico
+## 🛠️ Simulador de Suporte Técnico
 
 Projeto front-end desenvolvido com HTML, CSS e JavaScript, que simula um atendimento inicial de suporte técnico por meio de perguntas e respostas interativas.
 
 O objetivo do projeto é praticar lógica em JavaScript, manipulação do DOM e organização de código, além de criar algo próximo de uma situação real do dia a dia de suporte técnico.
 
-📌 Funcionalidades
+## 📌 Funcionalidades
 
 Seleção do tipo de problema:
 
-🐢 Computador lento
+## 🐢 Computador lento
 
-🌐 Sem internet
+## 🌐 Sem internet
 
-⚠️ Computador não liga
+## ⚠️ Computador não liga
 
 Fluxo de perguntas dinâmico baseado no problema escolhido
 
@@ -24,7 +24,7 @@ Interface simples, moderna e responsiva
 
 Código organizado por responsabilidades (estado, cenários, lógica)
 
-🧠 Lógica do Projeto
+## 🧠 Lógica do Projeto
 
 O simulador funciona a partir de cenários, definidos em um objeto JavaScript:
 
@@ -46,7 +46,7 @@ Reutilização da lógica
 
 Evolução futura (histórico, severidade, chat, etc.)
 
-🧩 Tecnologias Utilizadas
+## 🧩 Tecnologias Utilizadas
 
 HTML5 — Estrutura da aplicação
 
@@ -56,12 +56,13 @@ JavaScript (Vanilla) — Lógica, interatividade e manipulação do DOM
 
 Sem uso de frameworks ou bibliotecas externas, focando no fundamento.
 
-📷 Preview
+## 📷 Preview
 
-🔗 Acesse o projeto online:
-👉 https://pedrohpdev.github.io/support-tech-simulator/
+<a href="https://pedrohpdev.github.io/support-tech-simulator/" target="_blank">
+👉 Acesse o projeto online
+</a>
 
-🚀 Próximas Melhorias (Roadmap)
+## 🚀 Próximas Melhorias (Roadmap)
 
 Histórico das respostas do usuário
 
@@ -73,7 +74,7 @@ Mais cenários e perguntas
 
 Melhorias visuais e animações
 
-👨‍💻 Sobre o Autor
+## 👨‍💻 Sobre o Autor
 
 Pedro Henrique
 Desenvolvedor front-end em formação, em transição de carreira para a área de tecnologia.
@@ -84,8 +85,8 @@ Foco em projetos práticos e aprendizado contínuo
 
 Experiência prévia com suporte técnico e manutenção de equipamentos
 
-🔗 GitHub: https://github.com/PedroHPDev
+🔗 GitHub: <a href="https://github.com/PedroHPDev" target="_blank">github.com/PedroHPDev</a>
 
-📄 Licença
+## 📄 Licença
 
 Este projeto é de uso educacional e faz parte do meu processo de aprendizado.
